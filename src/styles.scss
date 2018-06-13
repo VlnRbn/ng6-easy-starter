@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+@include mat-core();
+
+// $ng6-primary: mat-palette(#202125);
+// $ng6-accent:  mat-palette(#21534d);
+
+// $ng6-warn:    mat-palette(#36bfa5);
+ 
+$ng6-primary: mat-palette($mat-teal, 600);
+$ng6-accent:  mat-palette($mat-yellow, A700);
+
+$ng6-warn:    mat-palette($mat-red, 600); 
+
+// $ng6-forground : mat-palette($mat-purple, 200);
+
+$ng6-theme: mat-light-theme($ng6-primary, $ng6-accent, $ng6-warn);
+
+@include angular-material-theme($ng6-theme);
+
+
+
+body { margin: 0; }
+
+div.container{
+    height: 100vh;
+    background: #ededed;
+}
+
+mat-card.main-card{
+    margin: 20px;
+    border-radius: 4px
+}
