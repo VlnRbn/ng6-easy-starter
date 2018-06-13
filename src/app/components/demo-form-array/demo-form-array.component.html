@@ -1,0 +1,74 @@
+
+  <h1>Form Array</h1>
+  <form [formGroup]="user">
+  
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="2%">
+      <mat-form-field fxFlex="22" appearance="standard">
+        <mat-label> Name </mat-label>
+        <input type="text" matInput  placeholder="Enter your name" name="name" formControlName="name">
+        <mat-error> Required </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="22" appearance="standard">
+          <mat-label> Contact number</mat-label>
+          <input type="text" matInput  placeholder="Enter your contact number" name="contact" formControlName="contact">
+          <mat-error> Required </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div formArrayName="addresses" fxFlexLayout="row" class="font-sans fields-container">
+
+      <ng-container *ngFor="let groups of user.get('addresses')['controls']; let i=index">
+
+        <div class="field-input-container" [formGroupName]="i" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="2%">
+
+          <mat-form-field fxFlex="22"  appearance="standard">
+            <mat-label> House / Flat Name </mat-label>
+            <input matInput type="text" class="field-input" formControlName="house" type="text">
+            <mat-error *ngIf="isErrorVisibleForAddress( i, 'house','required')">Required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field fxFlex="22"  appearance="standard">
+            <mat-label> Street </mat-label>
+            <input matInput type="text" class="field-input" formControlName="street" type="text">
+            <mat-error *ngIf="isErrorVisibleForAddress( i, 'street','required')">Required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field fxFlex="22"  appearance="standard">
+            <mat-label> Landmark </mat-label>
+            <input matInput type="text" class="field-input" formControlName="landmark" type="text">
+            <mat-error *ngIf="isErrorVisibleForAddress( i, 'landmark','required')">Required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field fxFlex="22"  appearance="standard">
+            <mat-label> Pincode </mat-label>
+            <input matInput type="text" class="field-input" formControlName="pincode" type="text">
+            <mat-error *ngIf="isErrorVisibleForAddress( i, 'pincode','required')">Required</mat-error>
+          </mat-form-field>
+
+          <div fxFlex="60px" class="delete-action">
+            <button mat-fab color="primary" (click)="deleteAddress(i)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+
+        </div>
+      </ng-container>
+      
+      <div  fxFlexLayout="row" fxLayoutGap="2%">
+        <button mat-raised-button  color="primary" type="button" (click)="addAnotherAddres()">
+            <mat-icon class="button-icon">
+                add_circle_outline
+            </mat-icon>
+            <span>Add Another Address</span>
+        </button>
+
+        <button mat-raised-button  color="accent" type="submit" [disabled]="user.invalid"> 
+          <mat-icon class="button-icon">
+              touch_app
+          </mat-icon>
+          <span> Submit </span>
+        </button>
+      </div>
+    </div>
+  </form>

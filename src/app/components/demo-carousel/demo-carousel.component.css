@@ -1,0 +1,19 @@
+.carousel-container{
+    width: 500px;
+    display: block;
+    position: relative;
+}
+
+.ctrl-button{
+    background-color: #40424a91;
+    position: absolute;
+    top: calc(50% - 28px);
+}
+
+.align-left{
+    left: 0;
+}
+
+.align-right{
+    right: 0;
+}

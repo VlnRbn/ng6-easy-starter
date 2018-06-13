@@ -1,0 +1,13 @@
+<h1>
+  demo-carousel
+</h1>
+
+<div *car="let url from images; let ctrl = controller" class="carousel-container">
+  <img [src]="url" [alt]="url" width="500px" height="300px" style="object-fit: cover">
+  <button mat-fab (click)="ctrl.prev()" class="ctrl-button align-left">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+  <button mat-fab (click)="ctrl.next()" class="ctrl-button align-right">
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
+</div> 

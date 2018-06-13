@@ -1,0 +1,40 @@
+.mat-table {
+    display: table !important;
+    min-width: 100% !important;
+
+    display: table;
+    width: 100%;
+}
+.mat-table    > .mat-header-row{
+        display: table-row;
+        padding: 0;
+        border: none;
+}
+
+.mat-header-row > .mat-header-cell{
+    display: table-cell;
+    height: 48px;
+    vertical-align: middle;
+    padding: 0 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.mat-table > .mat-row {
+    display: table-row;
+    padding: 0;
+    border: none;
+}
+.mat-row  > .mat-cell {
+    display: table-cell;
+    height: 48px;
+    vertical-align: middle;
+    padding: 0 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    font-family:  'PT Sans', sans-serif !important;
+    font-size: 1.0em !important;
+    color: #737373
+}
+
+mat-icon{
+    cursor: pointer;
+}

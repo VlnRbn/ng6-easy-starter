@@ -1,0 +1,24 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+
+
+<!-- <div  style="width : 500px; border: 1px solid #ccc ; padding-right: 40px" >
+
+<p class="block-with-text">The Hitch Hiker's Guide to the Galaxy has a few things to say on the subject of towels. A towel, it says, is about the most massivelyuseful thing an interstellar hitch hiker can have. Partly it has great practical value - you can wrap it around you for warmth as you bound across the cold moons of  Jaglan Beta; you can lie on it on the brilliant marble-sanded beaches of Santraginus V, inhaling the heady sea vapours; you can sleep under it beneath the stars which shine so redly on the desert world of Kakrafoon;  use it to sail a mini raft down the slow heavy river Mothkoned with.</p>
+</div> -->
+
+<div class="container">
+  <mat-toolbar color="primary">
+    <!-- <mat-nav-list> -->
+      <a mat-button routerLinkActive="active" [routerLink]="['tables']">Table</a>
+      <a mat-button routerLinkActive="active" [routerLink]="['carousel']">Carousel</a>
+      <a mat-button routerLinkActive="active" [routerLink]="['forms']">Dynamic Component Forms</a>
+      <a mat-button routerLinkActive="active" [routerLink]="['agm']">AgMaps</a>
+      <a mat-button routerLinkActive="active" [routerLink]="['form-array']"> Form Array </a>
+    <!-- </mat-nav-list> -->
+  </mat-toolbar>
+  
+  <mat-card fxFlex class="main-card mat-elevation-z0" >
+    <router-outlet></router-outlet>
+  </mat-card>
+</div>
