@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
+import { FormConfig } from '../../models/form-config';
 
 @Component({
   selector: 'app-demo-form',
@@ -13,7 +14,7 @@ export class DemoFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  config = [
+  config :FormConfig[] = [
     {
       type: 'input',
       label: 'First name',
@@ -44,7 +45,7 @@ export class DemoFormComponent implements OnInit {
     },
     {
       label: 'Submit',
-      // name: 'submit',
+      name: 'submit',
       type: 'button',
     },
   ];

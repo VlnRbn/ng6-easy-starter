@@ -12,14 +12,14 @@ export interface CarouselContext {
     }
 }
 
-@Directive({ selector: '[car]' })
+@Directive({ selector: '[carousel]' })
 export class CarouselDirective implements OnInit {
     constructor(
         private viewContainerRef : ViewContainerRef,
         private temRef : TemplateRef<CarouselContext>
     ) { }
 
-    @Input('carFrom') images : string[];
+    @Input('carouselFrom') images : string[];
 
     context: CarouselContext | null = null;
     index: number = 0;

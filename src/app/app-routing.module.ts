@@ -6,7 +6,11 @@ import { DemoCarouselComponent } from './components/demo-carousel/demo-carousel.
 import { DemoFormArrayComponent } from './components/demo-form-array/demo-form-array.component';;
 
 const routes: Routes = [
-
+  {
+    path: '',
+    redirectTo : 'carousel',
+    pathMatch : 'full'
+  },
   {
     path: 'tables',
     component : DemoTableComponent
