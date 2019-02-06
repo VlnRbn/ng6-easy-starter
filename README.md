@@ -6,17 +6,112 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Dynamic Tables
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Add DynamicTableModule in imports of @NgModule decorator and also import it from 'src/app/libs/dynamic-table/dynamic-table.module';
 
-## Refer CONFIG-TABLE-FORMS.md for library details
+add the following in .html file, app-mat-table is container selector of tables
+    **<app-mat-table [config]="config" (dispatchAction)="actionDispatched($event)" ></app-mat-table>
 
-## Build
+include the following config structure in component.ts file (interface TableConfig)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+    this.config : TableConfig[] = {
+      headers: [
+        {
+          columnIdentifier: 'age',
+          columnName: 'Age Of Candidate',
+        },
+        {
+          columnIdentifier: 'name',
+          columnName: 'Name Of Candidate'
+        },
+      ],
+      data: [
+        {
+          age: '22',
+          name: 'Velen',
+        },
+        {
+          age: '21',
+          name: 'Bharath',
+        },
+        {
+          age: '22',
+          name: 'Rakesh',
+        },
+        {
+          age: '21',
+          name: 'Jorge',
+        }
+      ],
+      actions : [
+        {
+          icon : 'delete',
+          tooltip: 'delete',
+          type: 'delete'
+        },
+        {
+          icon : 'mode_edit',
+          tooltip: 'edit',
+          type: 'edit'
+        }
+      ]
+    };
 
-## Further help
+    *note that data of config must be configured such that columnIdentifier 'value' should be 'key' in config.data
+    *If actions is are included the on clicking the icon will dispatch an event dispatchAction($event), $event will include the "row data" and type defined in actions.type
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
+## Dynamic forms
+
+Add DynamicFormModule in imports of @NgModule decorator and also import it from 
+'./libs/dynamic-form/dynamic-form.module';
+
+add the following in .html file, app-mat-table is container selector of forms
+    **<dynamic-form 
+    **  [config]="config" 
+    **  (submit)="formSubmitted($event)"
+    **  > 
+    **</dynamic-form>
+
+include the following config structure in component.ts file (interface FormConfig)
+
+    config :FormConfig[] = [
+      {
+        type: 'input',
+        label: 'First name',
+        name: 'first',
+        placeholder: 'Enter your name',
+        validation: [Validators.required, Validators.minLength(4)],
+        value: 'John',
+        disabled : false
+      },
+      {
+        type: 'input',
+        label: 'Last name',
+        name: 'last',
+        placeholder: 'Enter your last name',
+        validation: [Validators.required, Validators.minLength(4)],
+        value: '',
+        disabled : false
+      },
+      {
+        type: 'select',
+        label: 'Favourite food',
+        name: 'food',
+        options: ['Pizza', 'Hot Dogs', 'Knakworstje', 'Coffee'],
+        placeholder: 'Select an option',
+        validation: [Validators.required],
+        value: 'Hot Dogs',
+        disabled : false
+      },
+      {
+        label: 'Submit',
+        name: 'submit',
+        type: 'button',
+      },
+    ];
+
+## Carousel
+
+*carousel="let url from images; let ctrl = controller"
